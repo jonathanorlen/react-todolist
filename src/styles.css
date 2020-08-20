@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Bungee&family=Homemade+Apple&family=Roboto:wght@100&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -122,13 +123,14 @@ html {
 .todos {
   display: flex;
   flex-direction: column;
+  min-height: 500px;
 }
 
 .todo {
   position: relative;
   flex: 1 0 auto;
   text-align: center;
-  min-height: 36px;
+  max-height: 36px;
   margin: 16px 0 0;
   font-family: "Homemade Apple", sans-serif;
   font-size: 24px;
@@ -136,6 +138,8 @@ html {
   border-bottom: 1px solid var(--main-red-color);
 }
 .todo-text {
+  width: 100%;
+  height: 50px;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
