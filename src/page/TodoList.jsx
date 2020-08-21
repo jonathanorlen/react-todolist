@@ -21,18 +21,18 @@ const TodoList = () => {
     },
     {
       text: "Belajar React"
-    },
-    {
-      text: "Belajar React"
-    },
-    {
-      text: "Belajar Props DI React"
     }
   ]);
+
+  const addTodos = (value) => {
+    const addedTodo = [...todos, { text: value }];
+
+    setTodos(addedTodo);
+  };
   return (
     <Paper>
       <Header />
-      <TodoForm />
+      <TodoForm addTodos={addTodos} />
       <Todos todos={todos} />
     </Paper>
   );
