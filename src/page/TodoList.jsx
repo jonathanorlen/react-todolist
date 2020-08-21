@@ -8,32 +8,46 @@ import Todos from "../component/Todos";
 const TodoList = () => {
   const [todos, setTodos] = useState([
     {
-      text: "Belajar React"
+      text: "Belajar React",
+      isCompleted: false
     },
     {
-      text: "Belajar Props DI React"
-    },
-    {
-      text: "Belajar React Hooks"
-    },
-    {
-      text: "Belajar State di react"
-    },
-    {
-      text: "Belajar React"
+      text: "Belajar Props DI React",
+      isCompleted: false
     }
   ]);
 
+  const [showAdd, setShowAdd] = useState(false);
+
   const addTodos = (value) => {
-    const addedTodo = [...todos, { text: value }];
+    if (todos.length >= 10) {
+      alert("Todos can't more than 10");
+      return;
+    }
+    const addedTodo = [...todos, { text: value, isCompleted: false }];
 
     setTodos(addedTodo);
   };
+
+  const completeTodo = (index) => {
+    const addedTodo = [...todos];
+    addedTodo[index].isCompleted = !addedTodo[index].isCompleted;
+
+    setTodos(addedTodo);
+  };
+
+  const clearTodos = () => setTodos([]);
+  const showAddToogle = () => setShowAdd(!showAdd);
+
   return (
     <Paper>
-      <Header />
-      <TodoForm addTodos={addTodos} />
-      <Todos todos={todos} />
+      <Header
+        showAddToogle={showAddToogle}
+        showAdd={showAdd}
+        clearTodos={clearTodos}
+      />
+      <TodoForm addTodos={addTodos} showAdd={showAdd} />
+      <Todos todos={todos} completeTodo={completeTodo} />
     </Paper>
   );
 };
