@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 import { ThemeProvider } from "emotion-theming";
 
-import TodoList from "./page/TodoList";
+import TodoList from "./page/TodoListClass";
 
 const theme = {
   color: {
